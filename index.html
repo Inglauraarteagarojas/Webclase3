@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>FormularioRegistro</title>
+    <script>
+        function validarCorreo() {
+            var cadena = "^[a-z]+@[a-z]+\\.[a-z]{2,4}$";
+            var re = new RegExp(cadena);
+            var email = document.getElementsByName("emailuser")[0].value;
+            var esValido = re.test(email); // Validación booleana
+
+            if (esValido) {
+                alert("Correo válido: " + esValido);
+            } else {
+                alert("Correo no válido: " + esValido);
+            }
+
+            return esValido;
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1>Registro de Usuarios</h1>
+        <form action="registro.php" method="POST" onsubmit="return validarCorreo();">
+            <table border="1">
+                <tr>
+                    <td><label>Nombres</label></td>
+                    <td><input type="text" name="nombreuser" placeholder="Nombres" required/></td>
+                </tr>
+                <tr>
+                    <td><label>Apellidos</label></td>
+                    <td><input type="text" name="apellidosuser" placeholder="Apellidos" required/></td>
+                </tr>
+                <tr>
+                    <td><label>Correo electrónico</label></td>
+                    <td><input type="text" name="emailuser" placeholder="example@mail.com" required/></td>
+                </tr>
+                <tr>
+                    <td><label>Contraseña</label></td>
+                    <td><input type="password" name="pass" placeholder="**********************" required/></td>
+                </tr>
+                <tr>
+                    <td><label>Repetir Contraseña</label></td>
+                    <td><input type="password" name="rpass" placeholder="**********************" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Registrarme"></input></td>
+                    <td><input type="reset" value="Reestablecer"></input></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
